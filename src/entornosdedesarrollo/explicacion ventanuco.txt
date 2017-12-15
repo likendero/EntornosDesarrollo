@@ -1,0 +1,2 @@
+ventanuco es la ventana hecha en eclipse, pero la he subido junto a los archivos
+del proyecto de netbeans :D
