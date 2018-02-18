@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fraccionapp;
+package entrega;
 
 import java.util.Scanner;
+
         
 public class Fraccion {
  /* Los atributos de la clase Fraccion son el numerador y el denominador
@@ -35,7 +36,7 @@ public class Fraccion {
 
   /*Funcion para entrada de datos por teclado */
      
-  public static Fraccion datos(){
+  public static Fraccion datos()throws ArithmeticException{
         Scanner teclado = new Scanner(System.in);
         String numc ="";
         String denomc ="";
@@ -47,6 +48,8 @@ public class Fraccion {
  /* Buscamos el lugar que ocupa en la cadena el simbolo "/"  */
         
         int pos = fraccionDato.indexOf('/');
+        if(!fraccionDato.matches("^[0-9]+/[0-9]+$"))
+            throw new ArithmeticException("hay elementos no numericos");
         
  /* Si es un numero entero no se encuentra "/" y asigna a "pos" un -1 */
     
@@ -75,8 +78,10 @@ public class Fraccion {
             int num = Integer.valueOf(numc.trim()).intValue();
         
             int denom = Integer.valueOf(denomc.trim()).intValue();
-        
-            f = new Fraccion(num,denom);
+            if(denom > 0)
+                f = new Fraccion(num,denom);
+            else
+                throw new ArithmeticException("error division por 0");
         }
         
         return f;
@@ -86,15 +91,21 @@ public class Fraccion {
   /* Se devuelve una fraccion y los argumentos son fracciones */
   /* Se inicializa primero la fraccion que va a contener el resultado */
   public static Fraccion sumar(Fraccion a, Fraccion b){
+     a = a.simplificar();
+     b = b.simplificar();
      Fraccion c=new Fraccion();
      c.num=a.num*b.den+b.num*a.den;
      c.den=a.den*b.den;
+     c = c.simplificar();
      return c;
   }
   public static Fraccion restar(Fraccion a, Fraccion b){
+     a = a.simplificar();
+     b = b.simplificar();
      Fraccion c=new Fraccion();
      c.num=a.num*b.den-b.num*a.den;
      c.den=a.den*b.den;
+     c = c.simplificar();
      return c;
   }
 
@@ -134,7 +145,7 @@ public class Fraccion {
   /* Se devuelve una cadena con el numerador y denominador y en medio
      el signo "/" de division */ 
          
-         if(den==1) return " "+num;
+         if(den==1) return ""+num;
          
          else return num+"/"+den;
      }

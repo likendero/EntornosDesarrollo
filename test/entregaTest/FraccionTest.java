@@ -13,8 +13,18 @@ import entrega.Fraccion;
  * @author liken
  */
 public class FraccionTest {
-    
-    public FraccionTest() {
+    @Test
+    public  void FraccionTest() {
+        int numerador = 5;
+        int denominador = 2;
+        //constructor solo un argumento
+        Fraccion fraccion = new Fraccion(numerador);
+        assertEquals("5" , fraccion.aString() );
+        //constructor dos argumentos
+        fraccion = new Fraccion(numerador,denominador);
+        assertEquals("5/2", fraccion.aString());
+        //intento elementos vacios
+        //fraccion = new Fraccion((null);
     }
     
 }
