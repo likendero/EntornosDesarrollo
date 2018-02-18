@@ -118,7 +118,9 @@ public class Fraccion {
   }
  /* Para calcular el cociente se obtiene la fraccion producto de la primera
      fraccion,  por la inversa de la segunda fraccion */
-  public static Fraccion dividir(Fraccion a, Fraccion b){
+  public static Fraccion dividir(Fraccion a, Fraccion b)throws ArithmeticException{
+     if(b.num == 0)
+         throw new ArithmeticException("division por cero");
      return multiplicar(a, inversa(b));
   }
 

@@ -58,6 +58,23 @@ public class FraccionMetodosTest {
         System.out.println("multiplicaccion");
         Fraccion resultado = new Fraccion(-28,12);
         assertEquals(resultado.aString(),Fraccion.sumar(fraccion2, fraccion3).aString());
-        
+    }
+    @Test
+    public void testInversa(){
+        System.out.println("inversa");
+        Fraccion resultado = new Fraccion(4,7);
+        assertEquals(resultado.aString(),Fraccion.inversa(fraccion2).aString());
+    }
+    @Test
+    public void testDivision(){
+    Fraccion resultado = new Fraccion(20,7);
+    assertEquals(resultado.aString(),Fraccion.dividir(fraccion1, fraccion2).aString());
+    try{
+        fraccion1.dividir(fraccion2, fraccion4);
+        fail("se ha intentado dividir por 0");
+    }
+    catch(ArithmeticException arith){
+        System.out.println(arith.getMessage());
+    }
     }
 }
