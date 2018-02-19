@@ -77,4 +77,8 @@ public class FraccionMetodosTest {
         System.out.println(arith.getMessage());
     }
     }
+    /*
+        los metodos simplificar, mcd y aString se han probado de 
+        forma indirecta en las pruebas
+    */
 }
