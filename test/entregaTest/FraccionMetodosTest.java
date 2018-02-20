@@ -32,7 +32,7 @@ public class FraccionMetodosTest {
     public void testSuma(){
         System.out.println("suma");
         //prueba suma1
-        Fraccion resultado = new Fraccion(7,4);
+        Fraccion resultado = new Fraccion(27,4);
         assertEquals(resultado.aString(),Fraccion.sumar(fraccion1, fraccion2).aString());
         //prueba suma2
         resultado = new Fraccion(5,12);
@@ -56,7 +56,7 @@ public class FraccionMetodosTest {
     @Test
     public void testMultiplicar(){
         System.out.println("multiplicaccion");
-        Fraccion resultado = new Fraccion(-28,12);
+        Fraccion resultado = new Fraccion(5,12);
         assertEquals(resultado.aString(),Fraccion.sumar(fraccion2, fraccion3).aString());
     }
     @Test
