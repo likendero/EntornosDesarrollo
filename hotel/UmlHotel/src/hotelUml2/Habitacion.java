@@ -1,4 +1,6 @@
-package umlhotel;
+package hotelUml2;
+
+import umlhotel.*;
 
 enum Estado{
     LIBRE,
